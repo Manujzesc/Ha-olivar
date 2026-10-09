@@ -10,13 +10,18 @@
           "sistema": "Sistema",
           "marco_filas": "Marco: distancia entre filas",
           "marco_arboles": "Marco: distancia entre árboles",
+          "pies": "Pies por olivo",
           "olivos": "Número de olivos (0 si no lo sabes)",
           "superficie_ha": "Superficie (0 si no la sabes)",
           "dias_riego": "Días de riego por semana",
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)"
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
+          "manejo_suelo": "Manejo del suelo",
+          "recoleccion": "Sistema de recolección",
+          "pendiente": "Pendiente",
+          "ecologico": "Ecológico"
         }
       }
     },
@@ -36,13 +41,18 @@
           "sistema": "Sistema",
           "marco_filas": "Marco: distancia entre filas",
           "marco_arboles": "Marco: distancia entre árboles",
+          "pies": "Pies por olivo",
           "olivos": "Número de olivos (0 si no lo sabes)",
           "superficie_ha": "Superficie (0 si no la sabes)",
           "dias_riego": "Días de riego por semana",
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)"
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
+          "manejo_suelo": "Manejo del suelo",
+          "recoleccion": "Sistema de recolección",
+          "pendiente": "Pendiente",
+          "ecologico": "Ecológico"
         }
       }
     }
@@ -63,6 +73,21 @@
       },
       "arboles_ha": {
         "name": "Árboles por hectárea"
+      },
+      "pies": {
+        "name": "Pies por olivo"
+      },
+      "manejo_suelo": {
+        "name": "Manejo del suelo"
+      },
+      "recoleccion": {
+        "name": "Recolección"
+      },
+      "pendiente": {
+        "name": "Pendiente"
+      },
+      "ecologico": {
+        "name": "Ecológico"
       },
       "edad": {
         "name": "Edad"

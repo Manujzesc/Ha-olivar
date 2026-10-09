@@ -18,6 +18,14 @@ from homeassistant.helpers import selector
 from .const import (
     CONF_CAUDAL_GOTERO,
     CONF_ANO,
+    CONF_ECOLOGICO,
+    CONF_PENDIENTE,
+    CONF_PIES,
+    CONF_RECOLECCION,
+    CONF_SUELO,
+    MANEJOS_SUELO,
+    PENDIENTES,
+    RECOLECCIONES,
     CONF_DIAS_RIEGO,
     CONF_LINEAS,
     CONF_MARCO_ARBOLES,
@@ -47,6 +55,14 @@ def _number(min_v: float, max_v: float, step: float, unit: str | None = None):
     return selector.NumberSelector(selector.NumberSelectorConfig(**cfg))
 
 
+def _lista(opciones: list[str]):
+    return selector.SelectSelector(
+        selector.SelectSelectorConfig(
+            options=opciones, mode=selector.SelectSelectorMode.DROPDOWN
+        )
+    )
+
+
 def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
     campos: dict[Any, Any] = {}
     if con_nombre:
@@ -73,6 +89,9 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
             vol.Required(CONF_MARCO_ARBOLES, default=d[CONF_MARCO_ARBOLES]): _number(
                 0.5, 30, 0.1, "m"
             ),
+            vol.Required(CONF_PIES, default=d[CONF_PIES]): _number(
+                1, 6, 1, "pies"
+            ),
             vol.Optional(CONF_OLIVOS, default=d[CONF_OLIVOS]): _number(
                 0, 100000, 1, "olivos"
             ),
@@ -94,6 +113,14 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
             vol.Optional(CONF_ANO, default=d[CONF_ANO]): _number(
                 0, 2100, 1, None
             ),
+            vol.Required(CONF_SUELO, default=d[CONF_SUELO]): _lista(MANEJOS_SUELO),
+            vol.Required(CONF_RECOLECCION, default=d[CONF_RECOLECCION]): _lista(
+                RECOLECCIONES
+            ),
+            vol.Required(CONF_PENDIENTE, default=d[CONF_PENDIENTE]): _lista(PENDIENTES),
+            vol.Required(
+                CONF_ECOLOGICO, default=d[CONF_ECOLOGICO]
+            ): selector.BooleanSelector(),
         }
     )
     return vol.Schema(campos)
@@ -102,7 +129,7 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
 def _limpiar(datos: dict[str, Any]) -> dict[str, Any]:
     """Convierte los números enteros que el formulario devuelve como float."""
     out = dict(datos)
-    for k in (CONF_OLIVOS, CONF_DIAS_RIEGO, CONF_LINEAS, CONF_ANO):
+    for k in (CONF_OLIVOS, CONF_DIAS_RIEGO, CONF_LINEAS, CONF_ANO, CONF_PIES):
         if k in out and out[k] is not None:
             out[k] = int(out[k])
     if CONF_NOMBRE in out:

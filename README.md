@@ -10,7 +10,7 @@ Fichas de las parcelas de un olivar: cada parcela es un dispositivo con su varie
 3. Ajustes → Dispositivos y servicios → Añadir integración → **Olivar**.
 
 ## Datos de cada parcela
-Nombre, variedad, sistema, marco (entre filas × entre árboles), nº de olivos, superficie, días de riego, caudal y separación del gotero, líneas por fila, cobertura de copa y notas.
+Nombre de la finca, variedad, sistema, marco (entre filas × entre árboles), pies por olivo, nº de olivos, superficie, días de riego, caudal y separación del gotero, líneas por fila, año de plantación, manejo del suelo, recolección, pendiente y si es ecológico.
 
 Para editarla: Ajustes → Dispositivos y servicios → Olivar → la parcela → **Configurar**.
 

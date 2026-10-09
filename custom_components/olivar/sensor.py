@@ -14,6 +14,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .calc import calcular
 from .const import (
+    CONF_ECOLOGICO,
+    CONF_PENDIENTE,
+    CONF_PIES,
+    CONF_RECOLECCION,
+    CONF_SUELO,
     CONF_MARCO_ARBOLES,
     CONF_MARCO_FILAS,
     CONF_NOMBRE,
@@ -75,6 +80,37 @@ SENSORES: tuple[OlivarSensorDescription, ...] = (
         icon="mdi:forest",
         native_unit_of_measurement="árboles/ha",
         value_fn=lambda cfg, c: c["arboles_ha"],
+    ),
+    OlivarSensorDescription(
+        key="pies",
+        translation_key="pies",
+        icon="mdi:source-fork",
+        native_unit_of_measurement="pies",
+        value_fn=lambda cfg, c: cfg.get(CONF_PIES),
+    ),
+    OlivarSensorDescription(
+        key="manejo_suelo",
+        translation_key="manejo_suelo",
+        icon="mdi:tractor",
+        value_fn=lambda cfg, c: cfg.get(CONF_SUELO),
+    ),
+    OlivarSensorDescription(
+        key="recoleccion",
+        translation_key="recoleccion",
+        icon="mdi:basket-outline",
+        value_fn=lambda cfg, c: cfg.get(CONF_RECOLECCION),
+    ),
+    OlivarSensorDescription(
+        key="pendiente",
+        translation_key="pendiente",
+        icon="mdi:slope-uphill",
+        value_fn=lambda cfg, c: cfg.get(CONF_PENDIENTE),
+    ),
+    OlivarSensorDescription(
+        key="ecologico",
+        translation_key="ecologico",
+        icon="mdi:leaf-circle-outline",
+        value_fn=lambda cfg, c: "Sí" if cfg.get(CONF_ECOLOGICO) else "No",
     ),
     OlivarSensorDescription(
         key="edad",

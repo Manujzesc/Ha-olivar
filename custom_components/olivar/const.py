@@ -15,6 +15,11 @@ CONF_SEPARACION_GOTEROS = "separacion_goteros"
 CONF_LINEAS = "lineas_por_fila"
 CONF_COBERTURA = "cobertura"
 CONF_ANO = "ano_plantacion"
+CONF_PIES = "pies"
+CONF_SUELO = "manejo_suelo"
+CONF_RECOLECCION = "recoleccion"
+CONF_PENDIENTE = "pendiente"
+CONF_ECOLOGICO = "ecologico"
 CONF_NOTAS = "notas"
 
 VARIEDADES = [
@@ -33,6 +38,22 @@ VARIEDADES = [
 
 SISTEMAS = ["Tradicional", "Intensivo", "Superintensivo"]
 
+MANEJOS_SUELO = [
+    "Laboreo (arado)",
+    "Mínimo laboreo",
+    "No laboreo con herbicida",
+    "Cubierta vegetal",
+]
+
+RECOLECCIONES = [
+    "Vareo",
+    "Vibrador de tronco",
+    "Vibrador con paraguas",
+    "Cosechadora cabalgante",
+]
+
+PENDIENTES = ["Llano", "Ladera suave", "Ladera fuerte"]
+
 # Cobertura de copa por defecto (% del suelo que sombrea la copa)
 COBERTURA_POR_SISTEMA = {"Tradicional": 40, "Intensivo": 65, "Superintensivo": 100}
 
@@ -48,4 +69,9 @@ DEFAULTS = {
     CONF_SEPARACION_GOTEROS: 1.0,
     CONF_LINEAS: 1,
     CONF_ANO: 0,
+    CONF_PIES: 1,
+    CONF_SUELO: "Cubierta vegetal",
+    CONF_RECOLECCION: "Vibrador de tronco",
+    CONF_PENDIENTE: "Llano",
+    CONF_ECOLOGICO: False,
 }

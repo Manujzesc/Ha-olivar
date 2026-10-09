@@ -1,3 +1,5 @@
+<img src="icon.png" width="120" align="right">
+
 # Olivar para Home Assistant
 
 Fichas de las parcelas de un olivar: cada parcela es un dispositivo con su variedad, sistema, marco, olivos, superficie y datos de riego.

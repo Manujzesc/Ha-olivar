@@ -148,8 +148,7 @@ class OlivarSensor(SensorEntity):
             atributos = {k: v for k, v in cfg.items() if k != CONF_NOMBRE}
             atributos.update(datos)
             atributos["parcela"] = entry.title
-            if not cfg.get(CONF_NOTAS):
-                atributos.pop(CONF_NOTAS, None)
+            atributos.pop(CONF_NOTAS, None)
             atributos.pop("cobertura", None)
             atributos["cobertura"] = datos["cobertura"]
             self._attr_extra_state_attributes = atributos

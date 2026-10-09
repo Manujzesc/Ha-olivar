@@ -23,7 +23,6 @@ from .const import (
     CONF_MARCO_ARBOLES,
     CONF_MARCO_FILAS,
     CONF_NOMBRE,
-    CONF_NOTAS,
     CONF_OLIVOS,
     CONF_SEPARACION_GOTEROS,
     CONF_SISTEMA,
@@ -94,9 +93,6 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
             ),
             vol.Optional(CONF_ANO, default=d[CONF_ANO]): _number(
                 0, 2100, 1, None
-            ),
-            vol.Optional(CONF_NOTAS, default=d.get(CONF_NOTAS, "")): selector.TextSelector(
-                selector.TextSelectorConfig(multiline=True)
             ),
         }
     )

@@ -16,8 +16,7 @@
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
-          "notas": "Notas"
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)"
         }
       }
     },
@@ -43,8 +42,7 @@
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
-          "notas": "Notas"
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)"
         }
       }
     }

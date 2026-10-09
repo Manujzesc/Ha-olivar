@@ -77,6 +77,13 @@ SENSORES: tuple[OlivarSensorDescription, ...] = (
         value_fn=lambda cfg, c: c["arboles_ha"],
     ),
     OlivarSensorDescription(
+        key="edad",
+        translation_key="edad",
+        icon="mdi:cake-variant-outline",
+        native_unit_of_measurement="años",
+        value_fn=lambda cfg, c: c["edad"],
+    ),
+    OlivarSensorDescription(
         key="dias_riego",
         translation_key="dias_riego",
         icon="mdi:calendar-week",
@@ -143,4 +150,6 @@ class OlivarSensor(SensorEntity):
             atributos["parcela"] = entry.title
             if not cfg.get(CONF_NOTAS):
                 atributos.pop(CONF_NOTAS, None)
+            atributos.pop("cobertura", None)
+            atributos["cobertura"] = datos["cobertura"]
             self._attr_extra_state_attributes = atributos

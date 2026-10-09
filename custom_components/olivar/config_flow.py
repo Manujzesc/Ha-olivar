@@ -17,7 +17,7 @@ from homeassistant.helpers import selector
 
 from .const import (
     CONF_CAUDAL_GOTERO,
-    CONF_COBERTURA,
+    CONF_ANO,
     CONF_DIAS_RIEGO,
     CONF_LINEAS,
     CONF_MARCO_ARBOLES,
@@ -37,15 +37,15 @@ from .const import (
 
 
 def _number(min_v: float, max_v: float, step: float, unit: str | None = None):
-    return selector.NumberSelector(
-        selector.NumberSelectorConfig(
-            min=min_v,
-            max=max_v,
-            step=step,
-            mode=selector.NumberSelectorMode.BOX,
-            unit_of_measurement=unit,
-        )
-    )
+    cfg: dict[str, Any] = {
+        "min": min_v,
+        "max": max_v,
+        "step": step,
+        "mode": selector.NumberSelectorMode.BOX,
+    }
+    if unit:
+        cfg["unit_of_measurement"] = unit
+    return selector.NumberSelector(selector.NumberSelectorConfig(**cfg))
 
 
 def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
@@ -92,8 +92,8 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
             vol.Required(CONF_LINEAS, default=d[CONF_LINEAS]): _number(
                 1, 4, 1, "líneas"
             ),
-            vol.Required(CONF_COBERTURA, default=d[CONF_COBERTURA]): _number(
-                5, 100, 5, "%"
+            vol.Optional(CONF_ANO, default=d[CONF_ANO]): _number(
+                0, 2100, 1, None
             ),
             vol.Optional(CONF_NOTAS, default=d.get(CONF_NOTAS, "")): selector.TextSelector(
                 selector.TextSelectorConfig(multiline=True)
@@ -106,7 +106,7 @@ def _schema(d: dict[str, Any], con_nombre: bool = True) -> vol.Schema:
 def _limpiar(datos: dict[str, Any]) -> dict[str, Any]:
     """Convierte los números enteros que el formulario devuelve como float."""
     out = dict(datos)
-    for k in (CONF_OLIVOS, CONF_DIAS_RIEGO, CONF_LINEAS):
+    for k in (CONF_OLIVOS, CONF_DIAS_RIEGO, CONF_LINEAS, CONF_ANO):
         if k in out and out[k] is not None:
             out[k] = int(out[k])
     if CONF_NOMBRE in out:

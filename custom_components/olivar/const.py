@@ -14,6 +14,7 @@ CONF_CAUDAL_GOTERO = "caudal_gotero"
 CONF_SEPARACION_GOTEROS = "separacion_goteros"
 CONF_LINEAS = "lineas_por_fila"
 CONF_COBERTURA = "cobertura"
+CONF_ANO = "ano_plantacion"
 CONF_NOTAS = "notas"
 
 VARIEDADES = [
@@ -46,6 +47,6 @@ DEFAULTS = {
     CONF_CAUDAL_GOTERO: 1.6,
     CONF_SEPARACION_GOTEROS: 1.0,
     CONF_LINEAS: 1,
-    CONF_COBERTURA: 65,
+    CONF_ANO: 0,
     CONF_NOTAS: "",
 }

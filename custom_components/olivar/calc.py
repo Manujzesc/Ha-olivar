@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+from datetime import date
 from typing import Any
 
 from .const import (
+    CONF_ANO,
+    CONF_SISTEMA,
+    COBERTURA_POR_SISTEMA,
     CONF_CAUDAL_GOTERO,
-    CONF_COBERTURA,
     CONF_DIAS_RIEGO,
     CONF_LINEAS,
     CONF_MARCO_ARBOLES,
@@ -34,7 +37,9 @@ def calcular(cfg: dict[str, Any]) -> dict[str, Any]:
     olivos = int(_num(cfg.get(CONF_OLIVOS)))
     superficie = _num(cfg.get(CONF_SUPERFICIE))
     dias = int(_num(cfg.get(CONF_DIAS_RIEGO)))
-    cobertura = _num(cfg.get(CONF_COBERTURA), 100)
+    cobertura = COBERTURA_POR_SISTEMA.get(cfg.get(CONF_SISTEMA), 100)
+    ano = int(_num(cfg.get(CONF_ANO)))
+    edad = date.today().year - ano if 1900 < ano <= date.today().year else None
 
     m2_arbol = filas * arboles if filas > 0 and arboles > 0 else None
     arboles_ha = round(10000 / m2_arbol) if m2_arbol else None
@@ -73,6 +78,8 @@ def calcular(cfg: dict[str, Any]) -> dict[str, Any]:
         "superficie_total": superficie_total,
         "dias_riego": dias,
         "cobertura": cobertura,
+        "ano_plantacion": ano if ano > 0 else None,
+        "edad": edad,
         "litros_semana_por_hora": round(caudal_arbol * dias, 2)
         if caudal_arbol is not None
         else None,

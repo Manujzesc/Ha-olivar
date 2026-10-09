@@ -2,10 +2,10 @@
   "config": {
     "step": {
       "user": {
-        "title": "Añadir parcela",
-        "description": "Ficha de la parcela del olivar.",
+        "title": "Añadir finca",
+        "description": "Ficha de la finca del olivar.",
         "data": {
-          "nombre": "Nombre (p. ej. Walter 4)",
+          "nombre": "Nombre de la finca",
           "variedad": "Variedad",
           "sistema": "Sistema",
           "marco_filas": "Marco: distancia entre filas",
@@ -16,22 +16,22 @@
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "cobertura": "Cobertura de copa (suelo que sombrea)",
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
           "notas": "Notas"
         }
       }
     },
     "error": {
-      "nombre_vacio": "Pon un nombre a la parcela"
+      "nombre_vacio": "Pon el nombre de la finca"
     },
     "abort": {
-      "already_configured": "Ya existe una parcela con ese nombre"
+      "already_configured": "Ya existe una finca con ese nombre"
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Editar parcela",
+        "title": "Editar finca",
         "data": {
           "variedad": "Variedad",
           "sistema": "Sistema",
@@ -43,7 +43,7 @@
           "caudal_gotero": "Caudal del gotero",
           "separacion_goteros": "Separación entre goteros",
           "lineas_por_fila": "Líneas de gotero por fila",
-          "cobertura": "Cobertura de copa (suelo que sombrea)",
+          "ano_plantacion": "Edad del olivar: año de plantación (0 si no lo sabes)",
           "notas": "Notas"
         }
       }
@@ -51,14 +51,33 @@
   },
   "entity": {
     "sensor": {
-      "ficha": { "name": "Variedad" },
-      "marco": { "name": "Marco" },
-      "olivos": { "name": "Olivos" },
-      "superficie": { "name": "Superficie" },
-      "arboles_ha": { "name": "Árboles por hectárea" },
-      "dias_riego": { "name": "Días de riego" },
-      "goteros_arbol": { "name": "Goteros por árbol" },
-      "caudal_arbol": { "name": "Caudal por árbol" }
+      "ficha": {
+        "name": "Variedad"
+      },
+      "marco": {
+        "name": "Marco"
+      },
+      "olivos": {
+        "name": "Olivos"
+      },
+      "superficie": {
+        "name": "Superficie"
+      },
+      "arboles_ha": {
+        "name": "Árboles por hectárea"
+      },
+      "edad": {
+        "name": "Edad"
+      },
+      "dias_riego": {
+        "name": "Días de riego"
+      },
+      "goteros_arbol": {
+        "name": "Goteros por árbol"
+      },
+      "caudal_arbol": {
+        "name": "Caudal por árbol"
+      }
     }
   }
 }

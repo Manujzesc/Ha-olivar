@@ -1,0 +1,64 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Añadir parcela",
+        "description": "Ficha de la parcela del olivar.",
+        "data": {
+          "nombre": "Nombre (p. ej. Walter 4)",
+          "variedad": "Variedad",
+          "sistema": "Sistema",
+          "marco_filas": "Marco: distancia entre filas",
+          "marco_arboles": "Marco: distancia entre árboles",
+          "olivos": "Número de olivos (0 si no lo sabes)",
+          "superficie_ha": "Superficie (0 si no la sabes)",
+          "dias_riego": "Días de riego por semana",
+          "caudal_gotero": "Caudal del gotero",
+          "separacion_goteros": "Separación entre goteros",
+          "lineas_por_fila": "Líneas de gotero por fila",
+          "cobertura": "Cobertura de copa (suelo que sombrea)",
+          "notas": "Notas"
+        }
+      }
+    },
+    "error": {
+      "nombre_vacio": "Pon un nombre a la parcela"
+    },
+    "abort": {
+      "already_configured": "Ya existe una parcela con ese nombre"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Editar parcela",
+        "data": {
+          "variedad": "Variedad",
+          "sistema": "Sistema",
+          "marco_filas": "Marco: distancia entre filas",
+          "marco_arboles": "Marco: distancia entre árboles",
+          "olivos": "Número de olivos (0 si no lo sabes)",
+          "superficie_ha": "Superficie (0 si no la sabes)",
+          "dias_riego": "Días de riego por semana",
+          "caudal_gotero": "Caudal del gotero",
+          "separacion_goteros": "Separación entre goteros",
+          "lineas_por_fila": "Líneas de gotero por fila",
+          "cobertura": "Cobertura de copa (suelo que sombrea)",
+          "notas": "Notas"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "ficha": { "name": "Variedad" },
+      "marco": { "name": "Marco" },
+      "olivos": { "name": "Olivos" },
+      "superficie": { "name": "Superficie" },
+      "arboles_ha": { "name": "Árboles por hectárea" },
+      "dias_riego": { "name": "Días de riego" },
+      "goteros_arbol": { "name": "Goteros por árbol" },
+      "caudal_arbol": { "name": "Caudal por árbol" }
+    }
+  }
+}

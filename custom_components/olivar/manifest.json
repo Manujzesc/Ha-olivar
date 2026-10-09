@@ -1,0 +1,14 @@
+{
+  "domain": "olivar",
+  "name": "Olivar",
+  "codeowners": ["@Manujzesc"],
+  "config_flow": true,
+  "dependencies": [],
+  "issue_tracker": "https://github.com/Manujzesc/ha-olivar/issues",
+  "documentation": "https://github.com/Manujzesc/ha-olivar",
+  "integration_type": "device",
+  "iot_class": "calculated",
+  "requirements": [],
+  "single_config_entry": false,
+  "version": "1.0.0"
+}
